@@ -33,6 +33,7 @@ set-resources:
   - run_strandphaser_per_chrom:partition=medium
   - mergeBams:get_mb=32000
   - mergeSortBams:get_mb=32000
+##
 
 max-jobs-per-second: 100
 max-status-checks-per-second: 100
