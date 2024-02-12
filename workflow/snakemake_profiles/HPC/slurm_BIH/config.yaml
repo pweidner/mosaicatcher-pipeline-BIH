@@ -12,7 +12,7 @@ cluster: mkdir -p logs/{rule} errors/{rule} &&
 
 # Default ressources for all rules
 default-resources:
-  - partition=medium
+  - partition=medium ## MODIFIED
   - qos=normal
   - mem_mb=2000
   - time="00:30:00"

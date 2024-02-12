@@ -264,9 +264,3 @@ abs_path: "/"
 
 # Option to display all potential options - listed in config_metadata.yaml
 list_commands: False
-
-# --------------------------------------------------------
-# # BIH Profile hardcoding
-# --------------------------------------------------------
-
---profile workflow/snakemake_profiles/HPC/slurm_BIH/
