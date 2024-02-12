@@ -1,38 +1,38 @@
 # Cluster command
 cluster: mkdir -p logs/{rule} errors/{rule} &&
-	sbatch
-	--partition={resources.partition}
-	--qos={resources.qos}
-	--cpus-per-task={threads}
-	--mem={resources.mem_mb}
-	--job-name=smk-{rule}-{wildcards}
-	--output=logs/{rule}/%j.out
-	--error=errors/{rule}/%j.error
-	--time={resources.time}
+  sbatch
+  --partition={resources.partition}
+  --qos={resources.qos}
+  --cpus-per-task={threads}
+  --mem={resources.mem_mb}
+  --job-name=smk-{rule}-{wildcards}
+  --output=logs/{rule}/%j.out
+  --error=errors/{rule}/%j.error
+  --time={resources.time}
 
 # Default ressources for all rules
 default-resources:
-	- partition=medium
-	- qos=normal
-	- mem_mb=1000
-	- time="00:30:00"
+  - partition=medium
+  - qos=normal
+  - mem_mb=2000
+  - time="00:30:00"
 
 ## MODIFIED
 set-resources:
-	- install_T2T_BSgenome_tarball:partition=medium
-	- samtools_faindex:partition=medium
-	- create_haplotag_table:partition=medium
-	- mosaiClassifier_calc_probs:partition=medium
-	- create_haplotag_likelihoods:partition=medium
-	- mosaiClassifier_make_call:partition=medium
-	- mosaiClassifier_make_call_biallelic:partition=medium
-	- call_complex_regions:partition=medium
-	- mergeSortBams:partition=medium
-	- regenotype_SNVs:partition=medium
-	- call_SNVs_bcftools_chrom:partition=medium
-	- run_strandphaser_per_chrom:partition=medium
-	- mergeBams:get_mb=32000
-	- mergeSortBams:get_mb=32000
+  - install_T2T_BSgenome_tarball:partition=medium
+  - samtools_faindex:partition=medium
+  - create_haplotag_table:partition=medium
+  - mosaiClassifier_calc_probs:partition=medium
+  - create_haplotag_likelihoods:partition=medium
+  - mosaiClassifier_make_call:partition=medium
+  - mosaiClassifier_make_call_biallelic:partition=medium
+  - call_complex_regions:partition=medium
+  - mergeSortBams:partition=medium
+  - regenotype_SNVs:partition=medium
+  - call_SNVs_bcftools_chrom:partition=medium
+  - run_strandphaser_per_chrom:partition=medium
+  - mergeBams:get_mb=32000
+  - mergeSortBams:get_mb=32000
 
 max-jobs-per-second: 100
 max-status-checks-per-second: 100
@@ -47,6 +47,6 @@ keep-going: True
 # scheduler: greedy
 
 use-conda: true
-conda-frontend: "conda"
+conda-frontend: "mamba"
 use-singularity: true
 singularity-args: "-B /fast:/fast"
