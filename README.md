@@ -11,7 +11,7 @@ git clone --recurse-submodules https://github.com/pweidner/mosaicatcher-pipeline
 ```
 
 ```{bash}
-mamba create -n snakemake -c bioconda -c conda-forge -c defaults -c anaconda snakemake=7.12.0
+mamba create -n snakemake -c bioconda -c conda-forge -c defaults -c anaconda snakemake=7.32.0
 ```
 
 # Overview of this workflow
