@@ -31,8 +31,8 @@ set-resources:
   - regenotype_SNVs:partition=medium
   - call_SNVs_bcftools_chrom:partition=medium
   - run_strandphaser_per_chrom:partition=medium
-  - mergeBams:get_mb=32000
-  - mergeSortBams:get_mb=32000
+  - mergeBams:mem_mb=32000
+  - mergeSortBams:mem_mb=32000
 ##
 
 max-jobs-per-second: 100
